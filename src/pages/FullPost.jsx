@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 import axios from '../axios.js';
 
 import { Post } from "../components/Post";
@@ -12,14 +13,16 @@ export const FullPost = () => {
   const {id} = useParams();
 
   React.useEffect(() => {
-    axios.get(`/posts/${id}`).then(res => {
-      setData(res.data);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.warn(err);
-      alert('Ошибка при получении статьи');
-    });// eslint-disable-next-line
+    axios
+      .get(`/posts/${id}`)
+      .then((res) => {
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.warn(err);
+        alert('Ошибка при получении статьи');
+      });
   }, []);
 
   if (isLoading) {
@@ -31,7 +34,7 @@ export const FullPost = () => {
       <Post
         id={data._id}
         title={data.title}
-        imageUrl="https://www.itransition.com/careers/static/948c186ed9dd77972348647bed88772d/itransition_banner_2_7d4715e112.png"
+        imageUrl={data.imageUrl ? `http://localhost:4444${data.imageUrl}` : ''}
         user={data.user}
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}
@@ -39,9 +42,7 @@ export const FullPost = () => {
         tags={data.tags}
         isFullPost
       >
-        <p>
-          {data.text}
-        </p>
+      <ReactMarkdown children={data.text} />
       </Post>
       <CommentsBlock
         items={[
