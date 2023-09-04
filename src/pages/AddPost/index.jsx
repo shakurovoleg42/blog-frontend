@@ -15,7 +15,7 @@ export const AddPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const isAuth = useSelector(selectIsAuth);
-
+// eslint-disable-next-line
   const [isLoading, setLoading] = React.useState(false);
   const [text, setText] = React.useState('');
   const [title, setTitle] = React.useState('');
@@ -78,7 +78,7 @@ export const AddPost = () => {
         setImageUrl(data.imageUrl);
         setTags(data.tags.join(','));
       })
-    }
+    }// eslint-disable-next-line
   }, []);
 
   const options = React.useMemo(
@@ -118,7 +118,7 @@ export const AddPost = () => {
           </Button>
           <img 
             className={styles.image} 
-            src={`${process.env.REACT_APP_API_URL}${imageUrl}`} 
+            src={`${process.env.REACT_APP_API_URL || 'http://localhost:4444'}${imageUrl}`} 
             alt="Uploaded" 
           />
         </>

@@ -39,12 +39,12 @@ export const Home = () => {
               <Post
                 id={obj._id}
                 title={obj.title}
-                imageUrl={obj.imageUrl ? `${process.env.REACT_APP_API_URL}${obj.imageUrl}` : ''}
+                imageUrl={obj.imageUrl ? `${process.env.REACT_APP_API_URL || 'http://localhost:4444'}${obj.imageUrl}` : ''}
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
                 commentsCount={3}
-                tags={obj.tags}
+                tags={obj.tags} // eslint-disable-next-line
                 isEditable={userData ?._id === obj.user._id}
               />
             ),
@@ -52,7 +52,7 @@ export const Home = () => {
         </Grid>
         <Grid xs={4} item>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
-          <CommentsBlock
+          {/* <CommentsBlock
             items={[
               {
                 user: {
@@ -70,7 +70,7 @@ export const Home = () => {
               },
             ]}
             isLoading={false}
-          />
+          /> */}
         </Grid>
       </Grid>
     </>
