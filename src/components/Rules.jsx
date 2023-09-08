@@ -33,7 +33,7 @@ export default function ScrollDialog() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen('paper')} sx={{mr:"38rem"}}>
+      <Button onClick={handleClickOpen('paper')}>
         <MenuBookIcon
         color="action"
         sx={{fontSize: 30}}
