@@ -10,6 +10,7 @@ import { TagsBlock } from '../components/TagsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
 import Search from '../components/Search';
 
+
 export const Home = () => {
   const dispatch = useDispatch();
   const userData = useSelector(state => state.auth.data);

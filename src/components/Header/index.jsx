@@ -7,6 +7,7 @@ import styles from './Header.module.scss';
 import Container from '@mui/material/Container';
 
 import { logout, selectIsAuth } from "../../redux/slices/auth";
+import ScrollDialog from '../Rules';
 
 export const Header = () => {
   const isAuth = useSelector(selectIsAuth);
@@ -26,6 +27,7 @@ export const Header = () => {
           <Link className={styles.logo} to="/">
             <div>Reviews blog</div>
           </Link>
+          <ScrollDialog />
           <div className={styles.buttons}>
             {isAuth ? (
               <>
