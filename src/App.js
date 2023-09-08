@@ -8,11 +8,11 @@ import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   // eslint-disable-next-line
   const isAuth = useSelector(selectIsAuth);
 
   React.useEffect(() => {
-    dispatch(fetchAuthMe());
+    dispatch(fetchAuthMe());  // eslint-disable-next-line
   }, [])
 
   return (

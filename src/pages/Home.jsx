@@ -6,8 +6,9 @@ import Grid from '@mui/material/Grid';
 
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
-import { CommentsBlock } from '../components/CommentsBlock';
+// import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
+import Search from '../components/Search';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ export const Home = () => {
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>
+      <Search />
           {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) =>
             isPostsLoading ? (
               <Post key={index} isLoading={true} />

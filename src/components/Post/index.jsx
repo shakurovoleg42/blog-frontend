@@ -19,6 +19,7 @@ export const Post = ({
   createdAt,
   imageUrl,
   user,
+  likes,
   viewsCount,
   commentsCount,
   tags,
