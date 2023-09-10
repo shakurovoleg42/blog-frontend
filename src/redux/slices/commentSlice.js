@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import axios from '../../axios';
 
 const initialState = {
@@ -21,25 +21,44 @@ export const createComment = createAsyncThunk(
     },
 )
 
+export const getPostComments = createAsyncThunk('comment/getPostComments', async (postId) => {
+    try {
+        const { data } = axios.get(`/posts/comments/${postId}`)
+        return data;
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 export const commentSlice = createSlice({
     name: 'comment',
     initialState,
     reducers: {},
     extraReducers: {
-        // Создание поста
         [createComment.pending]: (state) => {
-            state.comment.items = [];
+            state.comment.comments = [];
             state.comment.status = 'loading';
         },
         [createComment.fulfilled]: (state, action) => {
-            state.comment.items = action.payload;
+            state.comment.comments = action.payload;
             state.comment.status = 'loaded';
         },
         [createComment.rejected]: (state) => {
-            state.comment.items = [];
+            state.comment.status = 'error';
+        },
+        [getPostComments.pending]: (state) => {
+            state.comment.comments = [];
+            state.comment.status = 'loading';
+        },
+        [getPostComments.fulfilled]: (state, action) => {
+            state.comment.comments= action.payload;
+            state.comment.status = 'loaded';
+        },
+        [getPostComments.rejected]: (state) => {
+            state.comment.comments = [];
             state.comment.status = 'error';
         },
     },
 })
 
-export const commentReducer = commentSlice
+export const commentReducer = commentSlice.reducer;

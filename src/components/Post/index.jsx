@@ -20,6 +20,7 @@ export const Post = ({
   imageUrl,
   user,
   viewsCount,
+  likesCount,
   commentsCount,
   tags,
   children,

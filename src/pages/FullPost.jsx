@@ -45,21 +45,21 @@ export const FullPost = () => {
       <ReactMarkdown children={data.text} />
       </Post>
       <CommentsBlock
-        items={[
-          // {
-          //   user: {
-          //     fullName: "test",
-          //     avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
-          //   },
-          //   text: "Это тестовый комментарий 555555",
-          // },
-          // {
-          //   user: {
-          //     fullName: "test1",
-          //     avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
-          //   },
-          //   text: "test",
-          // },
+        comments={[
+          {
+            user: {
+              fullName: "test",
+              avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
+            },
+            text: "Это тестовый комментарий 555555",
+          },
+          {
+            user: {
+              fullName: "test1",
+              avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
+            },
+            text: "test",
+          },
         ]}
         isLoading={false}
       >

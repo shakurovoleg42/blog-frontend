@@ -1,30 +1,44 @@
-import React from "react";
-
+import React, { useCallback } from "react";
+import { useEffect } from "react";
 import styles from "./AddComment.module.scss";
 
 import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from "react";
 
-import { createComment } from "../../redux/slices/commentSlice";
+import { createComment, getPostComments } from "../../redux/slices/commentSlice";
 import { useParams } from "react-router-dom";
 
 export const Index = () => {
- const dispatch = useDispatch();
- const params = useParams();
- const [ comment, setComment ] = useState('');
+    const dispatch = useDispatch();
+    const params = useParams();
+    const [ comment, setComment ] = useState('');
+    const { comments } = useSelector(state => state.comment);
+
+ useEffect(() => {
+  fetchComments()
+ }, [])
 
  const handleSubmit = () => {
-  try {
-      const postId = params.id
-      dispatch(createComment({ postId, comment }))
-      setComment('')
-  } catch (err) {
-      console.log(err)
+    try {
+        const postId = params.id
+        dispatch(createComment({ postId, comment }))
+        setComment('')
+    } catch (err) {
+        console.log(err)
+    }
   }
-}
+
+  const fetchComments = useCallback(async () => {
+    try {
+      dispatch(getPostComments(params.id))
+    } catch (err) {
+        console.log(err)
+    }
+  }, [params.id, dispatch])
+
   return (
     <>
       <div className={styles.root}>
