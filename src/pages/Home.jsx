@@ -47,7 +47,7 @@ export const Home = () => {
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
-                commentsCount={3}
+                commentsCount={0}
                 tags={obj.tags} // eslint-disable-next-line
                 isEditable={userData ?._id === obj.user._id}
               />
