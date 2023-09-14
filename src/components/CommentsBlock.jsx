@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useTranslation } from 'react-i18next';
 import { SideBlock } from "./SideBlock";
+
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
@@ -9,9 +10,11 @@ import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import Skeleton from "@mui/material/Skeleton";
 
-export const CommentsBlock = ({ items, children, isLoading = true }) => {
+export const CommentsBlock = ({ items, children, isLoading = true }) => { 
+ const { t } = useTranslation();
+
   return (
-    <SideBlock title="Комментарии">
+    <SideBlock title={t('comment_block.comments')}>
       <List>
         {(isLoading ? [...Array(5)] : items).map((obj, index) => (
           <React.Fragment key={index}>

@@ -2,23 +2,21 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
 import Container from '@mui/material/Container';
-
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 import ScrollDialog from '../Rules';
 
 export const Header = () => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
-
   const onClickLogout = () => {
-    if (window.confirm('Вы уверены, что хотите выйти?')) {
-      dispatch(logout());
-      window.localStorage.removeItem('token');
-    }
+    dispatch(logout());
+    window.localStorage.removeItem('token');
   };
+
+  const { t } = useTranslation();
 
   return (
     <div className={styles.root}>
@@ -32,19 +30,19 @@ export const Header = () => {
             {isAuth ? (
               <>
                 <Link to="/add-post">
-                  <Button variant="contained">Написать статью</Button>
+                  <Button variant="contained">{t("header.create_review")}</Button>
                 </Link>
                 <Button onClick={onClickLogout} variant="contained" color="error">
-                  Выйти
+                  {t('header.logout')}
                 </Button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="outlined">Войти</Button>
+                  <Button variant="outlined">{t('header.login')}</Button>
                 </Link>
                 <Link to="/register">
-                  <Button variant="contained">Создать аккаунт</Button>
+                  <Button variant="contained">{t('header.register')}</Button>
                 </Link>
               </>
             )}

@@ -8,11 +8,14 @@ import TagIcon from "@mui/icons-material/Tag";
 import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 
+import { useTranslation } from 'react-i18next';
 import { SideBlock } from "./SideBlock";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
+ const { t } = useTranslation();
+
   return (
-    <SideBlock title="Тэги">
+    <SideBlock title={t('tags_block')}>
       <List>
         {(isLoading ? [...Array(5)] : items).map((name, i) => (
           <a

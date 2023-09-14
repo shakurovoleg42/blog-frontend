@@ -2,12 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import axios from '../axios.js';
-
+import { useTranslation } from 'react-i18next';
 import { Post } from "../components/Post";
 import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
 
 export const FullPost = () => {
+  const { t } = useTranslation();
   const [data, setData] = React.useState();
   const [isLoading, setLoading] = React.useState(true);
   const {id} = useParams();
@@ -21,9 +22,9 @@ export const FullPost = () => {
       })
       .catch((err) => {
         console.warn(err);
-        alert('Ошибка при получении статьи');
-      });
-  }, []);
+        alert(t('full_post.error'));
+      });// eslint-disable-next-line
+  }, [id]);
 
   if (isLoading) {
     return <Post isLoading={isLoading}/>;
@@ -46,20 +47,7 @@ export const FullPost = () => {
       </Post>
       <CommentsBlock
         items={[
-          // {
-          //   user: {
-          //     fullName: "test",
-          //     avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
-          //   },
-          //   text: "Это тестовый комментарий 555555",
-          // },
-          // {
-          //   user: {
-          //     fullName: "test1",
-          //     avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
-          //   },
-          //   text: "test",
-          // },
+          
         ]}
         isLoading={false}
       >

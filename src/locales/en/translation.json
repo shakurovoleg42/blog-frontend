@@ -1,0 +1,59 @@
+{  
+    "header": {
+        "create_review": "Create review",
+        "login": "Sign up",
+        "logout": "Logout",
+        "register": "Sign in"
+    },
+    "add_comment": {
+        "write_comm": "Write a comment",
+        "send": "Send"
+    },
+    "comment_block": {
+        "comments": "Comments"
+    },
+    "search": "Search",
+    "rules": {
+        "text": "<strong><mark>It is important to follow the marking rules</mark> and write the following elements correctly: “Preview”, “Title”, “Tags” and “Text”. Here's how to properly design each of them:<br/><mark>“Preview”</mark>: The corresponding preview of the picture being reviewed. Here you should provide a short description or overview of the picture that will be used as a preview.<br/><mark>“Title”</mark>: “Title” should be written in quotation marks, and it is advisable to indicate the year of release. Also in this field you can indicate how much the user rates this object.<br/><mark>For example:</mark><br/>“Movie title” (2021) - Rating: 9/10.<br/><mark >“Tags”</mark>: Tags should be separated by spaces or commas. For example: tag1 tag2 tag3 or tag1, tag2, tag3. Tags help categorize and organize content for easy searching and navigation.<br/><mark>“Text”</mark>: Here you should provide a clear review or recommendation based on the opinion of the recommender. Your text should be informative, understandable, and useful to other users who will read the review.<br />Following these marking guidelines and formatting each element correctly will help create a pleasant reading experience for other users and provide easier navigation and search on your site.< /strong>",
+        "submit": "Yes sir!"  
+    },
+    "tags_block": "Tags",
+    "add_post": {
+        "error_file": "Error loading file!",
+        "error_review": "Error while creating article!",
+        "download_preview": "Download preview",
+        "text": "Enter text",
+        "delete": "Delete",
+        "title": "Article title...",
+        "tags": "Tags",
+        "edit": "Edit",
+        "publish": "Publish",
+        "cancel": "Cancel"
+    },
+    "Login": {
+        "error": "Failed to login!",
+        "sign_up": "Login to account",
+        "label_p": "Password",
+        "enter_email": "Enter your email",
+        "enter_pass": "Enter your password",
+        "login": "Login"
+    },
+    "registration": {
+        "error": "Failed to register!",
+        "create_account": "Account creation",
+        "fullname": "Please provide full name",
+        "label_fullname": "Full name",
+        "email": "Enter your email",
+        "password": "Enter your password",
+        "label_password": "Password",
+        "sign_in": "Register"
+    },
+    "full_post": {
+        "error": "Error receiving review"
+    },
+    "home": {
+        "label_new": "New",
+        "label_popular": "Popular"
+    }
+       
+}

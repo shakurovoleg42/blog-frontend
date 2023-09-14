@@ -1,0 +1,60 @@
+{   
+    "header": {
+        "create_review": "Erstellen Sie eine Bewertung",
+        "login": "Melden Sie sich an",
+        "logout": "Ausloggen",
+        "register": "anmelden"
+    },
+    "add_comment": {
+        "write_comm": "Schreibe einen Kommentar",
+        "send": "Schicken"
+    },
+    "comment_block": {
+        "comments": "Kommentare"
+    },
+    "search": "Suchen",
+    "rules": {
+        "text": "<strong><mark>Es ist wichtig, die Markierungsregeln zu befolgen</mark> und die folgenden Elemente richtig zu schreiben: „Vorschau“, „Titel“, „Tags“ und „Text“. So gestalten Sie die einzelnen Elemente richtig:<br/><mark>„Vorschau“</mark>: Die entsprechende Vorschau des Bildes, das überprüft wird. Hier sollten Sie eine kurze Beschreibung oder einen Überblick über das Bild angeben, das als Vorschau verwendet werden soll.<br/><mark>„Titel“</mark>: „Titel“ sollte in Anführungszeichen geschrieben werden, was auch ratsam ist Geben Sie das Erscheinungsjahr an. Außerdem können Sie in diesem Feld angeben, wie sehr der Benutzer dieses Objekt bewertet.<br/><mark>Zum Beispiel:</mark><br/>„Filmtitel“ (2021) – Bewertung: 9/10.<br/ ><mark >„Tags“</mark>: Tags sollten durch Leerzeichen oder Kommas getrennt werden. Zum Beispiel: tag1 tag2 tag3 oder tag1, tag2, tag3. Tags helfen dabei, Inhalte zu kategorisieren und zu organisieren, um die Suche und Navigation zu erleichtern.<br/><mark>„Text“</mark>: Hier sollten Sie eine klare Bewertung oder Empfehlung basierend auf der Meinung des Empfehlungsgebers abgeben. Ihr Text sollte informativ, verständlich und nützlich für andere Benutzer sein, die die Rezension lesen.<br />Das Befolgen dieser Markierungsrichtlinien und die korrekte Formatierung jedes Elements trägt dazu bei, ein angenehmes Leseerlebnis für andere Benutzer zu schaffen und die Navigation und Suche auf Ihrem zu erleichtern Website.< /strong>",
+        "submit": "So genau!"  
+    },
+    "tags_block": "Stichworte",
+    "add_post": {
+        "error_file": "Fehler beim Laden der Datei!",
+        "error_review": "Fehler beim Erstellen des Artikels!",
+        "download_preview": "Vorschau herunterladen",
+        "text": "Text eingeben",
+        "delete": "Löschen",
+        "title": "Artikelüberschrift...",
+        "tags": "Stichworte",
+        "edit": "Bearbeiten",
+        "publish": "Veröffentlichen",
+        "cancel": "Stornieren"
+    },
+    "Login": {
+        "error": "Einloggen fehlgeschlagen!",
+        "sign_up": "Anmeldung",
+        "label_p": "Passwort",
+        "enter_email": "Geben sie ihre E-Mail Adresse ein",
+        "enter_pass": "Geben Sie Ihr Passwort ein",
+        "login": "Betreten"
+    },
+    "registration": {
+        "error": "Registrierung fehlschlagen!",
+        "create_account": "Konto-Erstellung",
+        "fullname": "Bitte geben Sie den vollständigen Namen an",
+        "label_fullname": "Vollständiger Name",
+        "email": "Geben sie ihre E-Mail Adresse ein",
+        "password": "Geben Sie Ihr Passwort ein",
+        "label_password": "Passwort",
+        "sign_in": "Registrieren"
+    },
+    "full_post": {
+        "error": "Fehler beim Empfang des Artikels"
+    },
+    "home": {
+        "label_new": "Neu",
+        "label_popular": "Beliebt"
+
+    }
+    
+}

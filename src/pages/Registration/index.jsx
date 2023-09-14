@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form';
 import { Navigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -14,6 +15,7 @@ import styles from './Login.module.scss';
 import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
 
 export const Registration = () => {
+  const { t } = useTranslation();
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const {
@@ -33,7 +35,7 @@ export const Registration = () => {
     const data = await dispatch(fetchRegister(values));
 
     if (!data.payload) {
-      return alert('Не удалось зарегистрироваться!');
+      return alert(t('registration.error'));
     }
 
     if ('token' in data.payload) {
@@ -48,7 +50,7 @@ export const Registration = () => {
   return (
     <Paper classes={{ root: styles.root }}>
       <Typography classes={{ root: styles.title }} variant="h5">
-        Создание аккаунта
+        {t('registration.create_account')}
       </Typography>
       <div className={styles.avatar}>
         <Avatar sx={{ width: 100, height: 100 }} />
@@ -57,16 +59,16 @@ export const Registration = () => {
         <TextField
           error={Boolean(errors.fullName?.message)}
           helperText={errors.fullName?.message}
-          {...register('fullName', { required: 'Укажите полное имя' })}
+          {...register('fullName', { required: t('registration.fullname') })}
           className={styles.field}
-          label="Полное имя"
+          label={t('registration.label_fullname')}
           fullWidth
         />
         <TextField
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           type="email"
-          {...register('email', { required: 'Укажите почту' })}
+          {...register('email', { required: t('registration.email') })}
           className={styles.field}
           label="E-Mail"
           fullWidth
@@ -75,13 +77,13 @@ export const Registration = () => {
           error={Boolean(errors.password?.message)}
           helperText={errors.password?.message}
           type="password"
-          {...register('password', { required: 'Укажите пароль' })}
+          {...register('password', { required: t('registration.password') })}
           className={styles.field}
-          label="Пароль"
+          label={t('registration.label_password')}
           fullWidth
         />
         <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
-          Зарегистрироваться
+          {t('registration.sign_in')}
         </Button>
       </form>
     </Paper>

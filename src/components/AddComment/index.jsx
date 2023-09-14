@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./AddComment.module.scss";
-
+import { useTranslation } from 'react-i18next';
 import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -16,7 +16,9 @@ export const Index = () => {
  const params = useParams();
  const [ comment, setComment ] = useState('');
 
+ const { t } = useTranslation();
  const handleSubmit = () => {
+
   try {
       const postId = params.id
       dispatch(createComment({ postId, comment }))
@@ -34,7 +36,7 @@ export const Index = () => {
         />
         <div className={styles.form} onSubmit={e => e.preventDefault()}>
           <TextField
-            label="Написать комментарий"
+            label={t('add_comment.write_comm')}
             variant="outlined"
             maxRows={10}
             multiline
@@ -47,7 +49,7 @@ export const Index = () => {
           onClick={handleSubmit} 
           variant="contained"
           >
-          Отправить
+          {t('add_comment.send')}
           </Button>
         </div>
       </div>

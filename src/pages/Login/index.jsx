@@ -6,12 +6,13 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import {useForm} from 'react-hook-form';
-
+import { useTranslation } from 'react-i18next';
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import styles from "./Login.module.scss";
 
 export const Login = () => {
+  const { t } = useTranslation();
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const {
@@ -30,7 +31,7 @@ export const Login = () => {
     const data = await dispatch(fetchAuth(values));
 
     if (!data.payload) {
-      return alert('Не удалось авторизоваться!');
+      return alert(t('Login.error'));
     }
 
     if ('token' in data.payload) {
@@ -45,7 +46,7 @@ export const Login = () => {
   return (
     <Paper classes={{ root: styles.root }}>
       <Typography classes={{ root: styles.title }} variant="h5">
-        Вход в аккаунт
+        {t('Login.sign_up')}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
@@ -54,19 +55,19 @@ export const Login = () => {
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           type="email"
-          {...register('email', { required: 'Укажите почту' })}
+          {...register('email', { required: t('Login.enter_email') })}
           fullWidth
         />
         <TextField
           className={styles.field}
-          label="Пароль"
+          label={t('Login.label_p')}
           error={Boolean(errors.password?.message)}
           helperText={errors.password?.message}
-          {...register('password', { required: 'Укажите пароль' })}
+          {...register('password', { required: t('Login.enter_pass') })}
           fullWidth
         />
         <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
-          Войти
+          {t('Login.login')}
         </Button>
       </form>
     </Paper>

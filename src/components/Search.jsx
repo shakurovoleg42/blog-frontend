@@ -1,10 +1,11 @@
 import TextField from '@mui/material/TextField';
+import { useTranslation } from 'react-i18next';
 
 const Search = (props) => {
     const { onChange, value } = props;
-
+    const { t } = useTranslation();
     return <TextField
-        label='Поиск'
+        label={t('search')}
         type='search' 
         variant='standard'
         fullWidth

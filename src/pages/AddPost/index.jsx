@@ -5,13 +5,14 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import SimpleMDE from 'react-simplemde-editor';
-
+import { useTranslation } from 'react-i18next';
 import 'easymde/dist/easymde.min.css';
 import styles from './AddPost.module.scss';
 import axios from '../../axios';
 import { selectIsAuth } from '../../redux/slices/auth'
 
 export const AddPost = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const isAuth = useSelector(selectIsAuth);
@@ -34,7 +35,7 @@ export const AddPost = () => {
       setImageUrl(data.url);
     } catch (err) {
       console.warn(err);
-      alert('Ошибка при загрузке файла!');
+      alert(t('add_post.error_file'));
     }
   };
 
@@ -65,7 +66,7 @@ export const AddPost = () => {
       navigate(`/posts/${_id}`);
     } catch (err) {
       console.warn(err);
-      alert('Ошибка при создании статьи!');
+      alert(t('add_post.error_review'));
     }
   };
 
@@ -86,7 +87,7 @@ export const AddPost = () => {
       spellChecker: false,
       maxHeight: '400px',
       autofocus: true,
-      placeholder: 'Введите текст...',
+      placeholder: t('add_post.text'),
       status: false,
       autosave: {
         enabled: true,
@@ -103,7 +104,7 @@ export const AddPost = () => {
   return (
     <Paper style={{ padding: 30 }}>
       <Button onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
-        Загрузить превью
+        {t('add_post.download_preview')}
       </Button>
       <input 
         ref={inputFileRef} 
@@ -114,7 +115,7 @@ export const AddPost = () => {
       {imageUrl && (
         <>
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
-            Удалить
+            {t('add_post.delete')}
           </Button>
           <img 
             className={styles.image} 
@@ -128,7 +129,7 @@ export const AddPost = () => {
       <TextField
         classes={{ root: styles.title }}
         variant="standard"
-        placeholder="Заголовок статьи..."
+        placeholder={t('add_post.title')}
         value={title}
         onChange={e => setTitle(e.target.value)}
         fullWidth
@@ -138,16 +139,16 @@ export const AddPost = () => {
         onChange={e => setTags(e.target.value)} 
         classes={{ root: styles.tags }} 
         variant="standard" 
-        placeholder="Тэги" 
+        placeholder={t('add_post.tags')} 
         fullWidth           
       />
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
         <Button onClick={onSubmit} size="large" variant="contained">
-          {isEditing ? 'Редактировать' : 'Опубликовать'}
+          {isEditing ? t('add_post.edit') : t('add_post.publish')}
         </Button>
         <a href="/">
-          <Button size="large">Отмена</Button>
+          <Button size="large">{t('add_post.cancel')}</Button>
         </a>
       </div>
     </Paper>
