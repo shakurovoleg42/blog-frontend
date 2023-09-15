@@ -7,7 +7,6 @@ import DeleteIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import { useTranslation } from 'react-i18next';
 import styles from './Post.module.scss';
 import { UserInfo } from '../UserInfo';
 import { PostSkeleton } from './Skeleton';
@@ -29,7 +28,6 @@ export const Post = ({
 }) => {
   const dispatch = useDispatch();
 
-  const { t } = useTranslation();
   if (isLoading) {
     return <PostSkeleton />;
   }

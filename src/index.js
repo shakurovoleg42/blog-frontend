@@ -8,9 +8,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import "./index.scss";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
-import './i18n';
-import store from './redux/store';
 import "./i18n";
+import store from './redux/store';
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

@@ -9,14 +9,14 @@ import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
 import Search from '../components/Search';
-
+ import Paper from "@mui/material/Paper";
 
 export const Home = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector(state => state.auth.data);
   const { posts, tags } = useSelector(state => state.posts);
-
+ 
   const isPostsLoading = posts.status === 'loading';
   const isTagsLoading = tags.status === 'loading';
 
@@ -30,8 +30,10 @@ export const Home = () => {
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
-        <Tab label={t('home.label_new')} />
-        <Tab label={t('home.label_popular')} />
+        <Paper>
+          <Tab label={t('home.label_new')} style={{ fontWeight: 'bold' }}/>
+          <Tab label={t('home.label_popular')} style={{ fontWeight: 'bold' }}/>
+        </Paper>
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>

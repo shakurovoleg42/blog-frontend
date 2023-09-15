@@ -18,6 +18,10 @@ const resources = {
 i18n.use(initReactI18next).init({
   resources,
   fallbackLng: "en",
+  detection: {
+    order: ['cookie', 'localStorage', 'htmlTag', 'path', 'subdomain'],
+    caches: ['cookie']
+  },
   debug: true,
   interpolation: {
     escapeValue: false,

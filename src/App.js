@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <GradientBackground color='secondary'/>
+      <GradientBackground color='blue'/>
       <Header/>
       <Container maxWidth="lg">
         <Routes>

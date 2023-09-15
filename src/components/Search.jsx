@@ -4,17 +4,18 @@ import { useTranslation } from 'react-i18next';
 const Search = (props) => {
     const { onChange, value } = props;
     const { t } = useTranslation();
-    return <TextField
+  
+    return (
+      <TextField
         label={t('search')}
-        type='search' 
-        variant='standard'
+        type='search'
+        variant='outlined'
         fullWidth
-        value={value} 
+        value={value}
         onChange={onChange}
-        sx={{
-            mb:"2rem"
-        }}
-    />
-};
+        sx={{ mb: "2rem", backgroundColor: "white" }}
+      />
+    );
+  };
 
 export default Search;
