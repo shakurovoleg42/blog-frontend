@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from "react-dom/client";
@@ -16,7 +16,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-  <Suspense>
     <CssBaseline />
     <ThemeProvider theme={theme}>
     <BrowserRouter>
@@ -25,6 +24,5 @@ root.render(
       </Provider>
     </BrowserRouter>      
     </ThemeProvider>
-  </Suspense>   
   </>  
 );

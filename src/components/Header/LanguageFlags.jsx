@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import cookies from 'js-cookie'
-
+import 'flag-icon-css/css/flag-icon.min.css';
 
 import LanguageIcon from '@mui/icons-material/Language';
 

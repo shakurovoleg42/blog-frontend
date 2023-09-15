@@ -21,7 +21,7 @@ export const FullPost = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.warn(err);
+        console.warn(err); // 'Ошибка при получении статьи' ниже алерт
         alert(t('full_post.error'));
       });// eslint-disable-next-line
   }, [id]);
