@@ -8,6 +8,8 @@ import Container from '@mui/material/Container';
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 import ScrollDialog from '../Rules';
 import LanguageFlags from './LanguageFlags';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Header = () => {
   const isAuth = useSelector(selectIsAuth);
@@ -15,6 +17,16 @@ export const Header = () => {
   const onClickLogout = () => {
     dispatch(logout());
     window.localStorage.removeItem('token');
+    toast.success(t('header.logout_notify'), {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      })
   };
 
   const { t } = useTranslation();
@@ -51,6 +63,7 @@ export const Header = () => {
           </div>
         </div>
       </Container>
+      <ToastContainer/>
     </div>
   );
 };

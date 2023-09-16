@@ -8,10 +8,8 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import {useForm} from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-
-import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
-
 import { ToastContainer, toast } from 'react-toastify';
+import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 import 'react-toastify/dist/ReactToastify.css';
 
 import styles from "./Login.module.scss";
@@ -31,12 +29,23 @@ export const Login = () => {
     },
     mode: 'onChange',
   });
+  
+  const notify = () => toast();
 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchAuth(values));
 
     if (!data.payload) {
-      return alert(t('Login.error'));
+      return toast.error(t('Login.error'), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
 
     if ('token' in data.payload) {
@@ -71,9 +80,10 @@ export const Login = () => {
           {...register('password', { required: t('Login.enter_pass') })}
           fullWidth
         />
-        <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
+        <Button onClick={notify} disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
           {t('Login.login')}
         </Button>
+        <ToastContainer/>
       </form>
     </Paper>
   );

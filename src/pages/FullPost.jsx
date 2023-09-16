@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { Post } from "../components/Post";
 import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const FullPost = () => {
   const { t } = useTranslation();
@@ -21,8 +23,7 @@ export const FullPost = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.warn(err); // 'Ошибка при получении статьи' ниже алерт
-        alert(t('full_post.error'));
+        console.warn(err); // 'Ошибка при получении статьи' ниже алерт t('full_post.error')
       });// eslint-disable-next-line
   }, [id]);
 
@@ -44,6 +45,7 @@ export const FullPost = () => {
         isFullPost
       >
       <ReactMarkdown children={data.text} />
+      <ToastContainer/>
       </Post>
       <CommentsBlock
         items={[

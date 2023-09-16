@@ -11,6 +11,9 @@ import styles from './Post.module.scss';
 import { UserInfo } from '../UserInfo';
 import { PostSkeleton } from './Skeleton';
 import { fetchRemovePost } from '../../redux/slices/posts';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 export const Post = ({
   id,
@@ -27,12 +30,25 @@ export const Post = ({
   isEditable,
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return <PostSkeleton />;
   }
 
-  const onClickRemove = () => {dispatch(fetchRemovePost(id)) 
+  const onClickRemove = () => {dispatch(fetchRemovePost(id))
+    if (onClickRemove) {
+      toast.success(t('Post'), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
   };
 
   return (
@@ -82,6 +98,7 @@ export const Post = ({
           </ul>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

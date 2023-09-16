@@ -3,7 +3,6 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import cookies from 'js-cookie'
 import 'flag-icon-css/css/flag-icon.min.css';
 
 import LanguageIcon from '@mui/icons-material/Language';
@@ -39,8 +38,6 @@ export default function LanguageFlags() {
 
     const { t } = useTranslation();
 
-    const currentLanguageCode = cookies.get('i18next') || 'en'
-
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -70,8 +67,8 @@ return (
   {languages.map(({ code, country_code, name}) => (
     <Tooltip title={name} arrow placement='left'>
     <MenuItem key={code} style={{
-      backgroundColor: currentLanguageCode === code ? '#D8D8D8' : '#F8F8F8',      
-      border: currentLanguageCode === code ? '1px solid #989898' : '#F8F8F8'             
+      backgroundColor: '#F8F8F8',      
+      border: '1px solid #989898'             
     }}>
     <IconButton 
       className={classNames('dropdown-item')}
@@ -82,7 +79,7 @@ return (
       
     <div className={`flag-icon flag-icon-${country_code}`}
     style={{
-      opacity: currentLanguageCode === code ? 1 : 0.3,
+      opacity: 1,
       width: '3rem',                             
       height: '2rem', 
                                     

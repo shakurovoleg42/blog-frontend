@@ -3,6 +3,7 @@
         "create_review": "Erstellen Sie eine Bewertung",
         "login": "Melden Sie sich an",
         "logout": "Ausloggen",
+        "logout_notify": "Sie sind von Ihrem Konto abgemeldet",
         "register": "anmelden"
     },
     "add_comment": {
@@ -31,6 +32,7 @@
         "publish": "Veröffentlichen",
         "cancel": "Stornieren"
     },
+    "Post":"Sie haben Ihre Bewertung gelöscht",
     "Login": {
         "error": "Einloggen fehlgeschlagen!",
         "sign_up": "Anmeldung",

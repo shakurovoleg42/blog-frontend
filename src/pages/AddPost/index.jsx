@@ -10,6 +10,8 @@ import 'easymde/dist/easymde.min.css';
 import styles from './AddPost.module.scss';
 import axios from '../../axios';
 import { selectIsAuth } from '../../redux/slices/auth'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AddPost = () => {
   const { t } = useTranslation();
@@ -35,9 +37,20 @@ export const AddPost = () => {
       setImageUrl(data.url);
     } catch (err) {
       console.warn(err);
-      alert(t('add_post.error_file'));
+      toast.warning(t('add_post.error_file'), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
     }
   };
+
+  const notify = () => toast();
 
   const onClickRemoveImage = () => {
     setImageUrl('');
@@ -66,7 +79,16 @@ export const AddPost = () => {
       navigate(`/posts/${_id}`);
     } catch (err) {
       console.warn(err);
-      alert(t('add_post.error_review'));
+      return toast.warning(t('add_post.error_review'), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
     }
   };
 
@@ -94,7 +116,7 @@ export const AddPost = () => {
         delay: 1000,
       },
     }),
-    [],
+    [t],
   );
 
   if (!window.localStorage.getItem('token') && !isAuth) {
@@ -144,9 +166,10 @@ export const AddPost = () => {
       />
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
-        <Button onClick={onSubmit} size="large" variant="contained">
+        <Button onClick={() => {notify(); onSubmit()}} size="large" variant="contained">
           {isEditing ? t('add_post.edit') : t('add_post.publish')}
         </Button>
+        <ToastContainer/>
         <a href="/">
           <Button size="large">{t('add_post.cancel')}</Button>
         </a>

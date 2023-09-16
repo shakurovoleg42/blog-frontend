@@ -3,6 +3,7 @@
         "create_review": "Create review",
         "login": "Sign up",
         "logout": "Logout",
+        "logout_notify": "You are logged out of your account",
         "register": "Sign in"
     },
     "add_comment": {
@@ -21,7 +22,7 @@
     "tags_block": "Tags",
     "add_post": {
         "error_file": "Error loading file!",
-        "error_review": "Error while creating article!",
+        "error_review": "Error while creating review!",
         "download_preview": "Download preview",
         "text": "Enter text",
         "delete": "Delete",
@@ -31,6 +32,7 @@
         "publish": "Publish",
         "cancel": "Cancel"
     },
+    "Post": "You have deleted your review",
     "Login": {
         "error": "Failed to login!",
         "sign_up": "Login to account",

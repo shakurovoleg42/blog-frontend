@@ -9,6 +9,8 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import styles from './Login.module.scss';
 
@@ -30,12 +32,22 @@ export const Registration = () => {
     },
     mode: 'onChange',
   });
+  const notify = () => toast();
 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchRegister(values));
 
     if (!data.payload) {
-      return alert(t('registration.error'));
+      return toast.error(t('registration.error'), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
 
     if ('token' in data.payload) {
@@ -82,9 +94,10 @@ export const Registration = () => {
           label={t('registration.label_password')}
           fullWidth
         />
-        <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
+        <Button onClick={notify} disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
           {t('registration.sign_in')}
         </Button>
+        <ToastContainer/>
       </form>
     </Paper>
   );
