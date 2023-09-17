@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
+import styled from 'styled-components';
 import Container from '@mui/material/Container';
 import { logout, selectIsAuth } from "../../redux/slices/auth";
-import ScrollDialog from '../Rules';
 import LanguageFlags from './LanguageFlags';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const ModeSwitcher = styled.div`
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  ${'' /* font_weight: var(var(--fw-bold)); */}
+  text-transform: capitalize
+`;
+
 export const Header = () => {
+  const { t } = useTranslation();
+
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const onClickLogout = () => {
@@ -29,7 +41,13 @@ export const Header = () => {
       })
   };
 
-  const { t } = useTranslation();
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme)
+  }, [theme]);
 
   return (
     <div className={styles.root}>
@@ -38,8 +56,14 @@ export const Header = () => {
           <Link className={styles.logo} to="/">
             <div>Reviews blog</div>
           </Link>
+          <ModeSwitcher onClick={toggleTheme}>
+          {theme === 'light' ? (
+              <Brightness4Icon sx={{fontSize: 30}}/> 
+          ) : (
+            <Brightness7Icon sx={{fontSize: 30}}/>
+          )}
+          </ModeSwitcher>
           <LanguageFlags/>
-          <ScrollDialog />
           <div className={styles.buttons}>
             {isAuth ? (
               <>

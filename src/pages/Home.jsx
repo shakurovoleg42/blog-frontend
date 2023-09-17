@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Tabs from '@mui/material/Tabs';
@@ -8,8 +9,8 @@ import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
-import Search from '../components/Search';
- import Paper from "@mui/material/Paper";
+import {Search} from '../components/Search';
+import Paper from "@mui/material/Paper";
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -31,13 +32,13 @@ export const Home = () => {
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
         <Paper>
-          <Tab label={t('home.label_new')} style={{ fontWeight: 'bold' }}/>
-          <Tab label={t('home.label_popular')} style={{ fontWeight: 'bold' }}/>
+          <Search />
+          <Tab label={t('home.label_new')} />
+          <Tab label={t('home.label_popular')}/>
         </Paper>
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>
-      <Search />
           {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) =>
             isPostsLoading ? (
               <Post key={index} isLoading={true} />
