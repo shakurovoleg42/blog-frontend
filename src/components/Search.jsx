@@ -8,6 +8,7 @@ const InputContainer = styled.label`
   padding: 1rem 2rem 1rem;
   display: flex;
   align-items: center;
+  color: var(--colors-text)
 
   border-radius: var(--radii);
   box-shadow: var(--shadow);
@@ -28,6 +29,7 @@ const Input = styled.input.attrs({
   margin-left: 2rem;
   border: none;
   outline: none;
+  background-color: var(--colors-ui-base);
   color: var(--color-text);
 `;
 
