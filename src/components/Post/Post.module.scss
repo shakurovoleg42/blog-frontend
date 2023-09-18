@@ -81,7 +81,7 @@ $blue: #4361ee;
 
   li {
     display: inline-block;
-    font-size: 14px;
+    font-size: 20px;
     margin-right: 15px;
     opacity: 0.8;
 
@@ -94,7 +94,7 @@ $blue: #4361ee;
       color: transparent;    
       -webkit-background-clip: text;
       background-clip: text;
-      background-image: linear-gradient(to bottom, red, fuchsia);
+      background-image: linear-gradient(to bottom, rgb(3, 217, 245), rgb(255, 2, 2));
     }
   }
 }

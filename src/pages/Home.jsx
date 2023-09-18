@@ -29,12 +29,9 @@ export const Home = () => {
   
   return (
     <>
-      <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
-        {/* <Paper> */}
+      <Tabs style={{ marginBottom: 15, color: '#23a6d5' }} value={0} aria-label="basic tabs example">
           <Tab label={t('home.label_new')} />
-          {/* <Tab label={t('home.label_popular')}/> */}
-          <Search />
-        {/* </Paper> */}
+          <Tab label={t('home.label_popular')}/>
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>

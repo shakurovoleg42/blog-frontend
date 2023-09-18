@@ -17,7 +17,7 @@ const ModeSwitcher = styled.div`
   color: var(--colors-text);
   font-size: var(--fs-sm);
   cursor: pointer;
-  font_weight: var(var(--fw-bold));
+  ${'' /* font_weight: var(var(--fw-bold)); */}
   text-transform: capitalize
 `;
 
@@ -41,7 +41,7 @@ export const Header = () => {
       })
   };
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
