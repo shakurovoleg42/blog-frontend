@@ -17,6 +17,7 @@
     "easymde": "^2.16.1",
     "flag-icon-css": "^3.5.0",
     "flag-icons": "^6.11.0",
+    "gapi-script": "^1.2.0",
     "gradient-background": "^1.6.3",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",

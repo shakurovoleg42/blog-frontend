@@ -8,7 +8,7 @@ import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
-import {Search} from '../components/Search';
+import { Search } from '../components/Search';
 import Paper from "@mui/material/Paper";
 
 export const Home = () => {
@@ -31,7 +31,7 @@ export const Home = () => {
     <>
       <Tabs style={{ marginBottom: 15, color: '#23a6d5' }} value={0} aria-label="basic tabs example">
           <Tab label={t('home.label_new')} />
-          <Tab label={t('home.label_popular')}/>
+          {/* <Tab label={t('home.label_popular')}/> */}
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>
@@ -54,6 +54,7 @@ export const Home = () => {
           )}
         </Grid>
         <Grid xs={4} item>
+        <Search/>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
           {/* <CommentsBlock
             items={[
