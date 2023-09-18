@@ -17,7 +17,7 @@ const ModeSwitcher = styled.div`
   color: var(--colors-text);
   font-size: var(--fs-sm);
   cursor: pointer;
-  ${'' /* font_weight: var(var(--fw-bold)); */}
+  font_weight: var(var(--fw-bold));
   text-transform: capitalize
 `;
 
@@ -30,7 +30,7 @@ export const Header = () => {
     dispatch(logout());
     window.localStorage.removeItem('token');
     toast.success(t('header.logout_notify'), {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -52,18 +52,18 @@ export const Header = () => {
   return (
     <div className={styles.root}>
       <Container maxWidth="lg">
-        <div className={styles.inner}>
-          <Link className={styles.logo} to="/">
-            <div>Reviews blog</div>
-          </Link>
-          <ModeSwitcher onClick={toggleTheme}>
-          {theme === 'light' ? (
-              <Brightness4Icon sx={{fontSize: 30}}/> 
-          ) : (
-            <Brightness7Icon sx={{fontSize: 30}}/>
-          )}
-          </ModeSwitcher>
-          <LanguageFlags/>
+      <div className={styles.inner}>
+  <Link className={styles.logo} to="/">
+    <div>Reviews blog</div>
+  </Link>
+  <ModeSwitcher onClick={toggleTheme} style={{marginTop: '5px'}}>
+    {theme === 'light' ? (
+      <Brightness4Icon sx={{ fontSize: 30 }} />
+    ) : (
+      <Brightness7Icon sx={{ fontSize: 30 }} />
+    )}
+  </ModeSwitcher>
+          <LanguageFlags sx={{ml: '2rem'}}/>
           <div className={styles.buttons}>
             {isAuth ? (
               <>

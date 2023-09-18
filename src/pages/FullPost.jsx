@@ -24,6 +24,16 @@ export const FullPost = () => {
       })
       .catch((err) => {
         console.warn(err); // 'Ошибка при получении статьи' ниже алерт t('full_post.error')
+        toast.info(t('full_post.error'), {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          })
       });// eslint-disable-next-line
   }, [id]);
 

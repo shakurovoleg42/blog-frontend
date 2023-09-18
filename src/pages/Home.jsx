@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Tabs from '@mui/material/Tabs';
@@ -31,11 +30,11 @@ export const Home = () => {
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
-        <Paper>
-          <Search />
+        {/* <Paper> */}
           <Tab label={t('home.label_new')} />
-          <Tab label={t('home.label_popular')}/>
-        </Paper>
+          {/* <Tab label={t('home.label_popular')}/> */}
+          <Search />
+        {/* </Paper> */}
       </Tabs>
       <Grid container spacing={4}>
       <Grid xs={8} item>

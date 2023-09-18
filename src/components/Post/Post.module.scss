@@ -1,8 +1,8 @@
 $blue: #4361ee;
 
 .root {
-  background-color: #fff;
-  border: 1px solid #dedede;
+  // background-color: #40756b;
+  border: 1px solid #8d8b8b;
   border-radius: 6px;
   overflow: hidden;
   margin-bottom: 19px;
@@ -19,7 +19,7 @@ $blue: #4361ee;
 
   &Full {
     &:hover {
-      background-color: #fff;
+      // background-color: #40756b;
       border: 1px solid #dedede;
       box-shadow: none;
     }
@@ -59,13 +59,14 @@ $blue: #4361ee;
   margin: 0;
 
   a {
+    display: inline;
     text-decoration: none;
-    color: #000;
-
-    &:hover {
-      color: $blue;
-    }
+    color: #35b8b1;
   }
+  
+  // a:hover {
+    // color: $blue;
+  // }
 
   &Full {
     font-size: 42px;
@@ -90,7 +91,10 @@ $blue: #4361ee;
 
     a {
       text-decoration: none;
-      color: #000;
+      color: transparent;    
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to bottom, red, fuchsia);
     }
   }
 }

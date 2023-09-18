@@ -39,8 +39,8 @@ export const Post = ({
   const onClickRemove = () => {dispatch(fetchRemovePost(id))
     if (onClickRemove) {
       toast.success(t('Post'), {
-        position: "top-right",
-        autoClose: 5000,
+        position: "top-left",
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
