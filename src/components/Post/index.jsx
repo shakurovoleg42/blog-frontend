@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Clear';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import EditIcon from '@mui/icons-material/Edit';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
@@ -21,6 +22,7 @@ export const Post = ({
   createdAt,
   imageUrl,
   user,
+  likesCount,
   viewsCount,
   commentsCount,
   tags,
@@ -88,9 +90,15 @@ export const Post = ({
           {children && <div className={styles.content}>{children}</div>}
           <ul className={styles.postDetails}>
             <li>
+              <FavoriteBorderIcon />
+              <span>{likesCount}</span>
+            </li>
+
+            <li>
               <EyeIcon />
               <span>{viewsCount}</span>
             </li>
+
             <li>
               <CommentIcon />
               <span>{commentsCount}</span>

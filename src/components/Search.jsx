@@ -23,8 +23,7 @@ const InputContainer = styled.label`
 
 const Input = styled.input.attrs({
   type: 'search',
-  placeholder: 'Search for a...'
-
+  placeholder: "Search for a..."
 })`
   margin-left: 2rem;
   border: none;
@@ -34,6 +33,7 @@ const Input = styled.input.attrs({
 `;
 
 export const Search = ({ search, setSearch }) => {
+  
   return (
     <InputContainer>
       <SearchIcon/>

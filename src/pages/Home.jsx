@@ -9,7 +9,6 @@ import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
 import { Search } from '../components/Search';
-import Paper from "@mui/material/Paper";
 
 export const Home = () => {
   const { t } = useTranslation();
