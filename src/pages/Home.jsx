@@ -29,6 +29,7 @@ export const Home = () => {
   
   return (
     <>
+      <Search/>
       <Tabs style={{ marginBottom: 15, color: '#23a6d5' }} value={0} aria-label="basic tabs example">
           <Tab label={t('home.label_new')} />
           {/* <Tab label={t('home.label_popular')}/> */}
@@ -54,7 +55,6 @@ export const Home = () => {
           )}
         </Grid>
         <Grid xs={4} item>
-        <Search/>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
           {/* <CommentsBlock
             items={[
