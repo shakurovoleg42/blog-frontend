@@ -10,7 +10,7 @@ $blue: #4361ee;
 
   &:hover {
     border: 1px solid $blue;
-    box-shadow: 0 0 0 1px $blue;
+    box-shadow: 0 0 3px 1px $blue;
 
     .editButtons {
       opacity: 1;
@@ -19,7 +19,6 @@ $blue: #4361ee;
 
   &Full {
     &:hover {
-      // background-color: #40756b;
       border: 1px solid #dedede;
       box-shadow: none;
     }

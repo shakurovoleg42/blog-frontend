@@ -12,6 +12,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Search } from '../Search';
 
 const ModeSwitcher = styled.div`
   color: var(--colors-text);
@@ -21,7 +22,7 @@ const ModeSwitcher = styled.div`
   text-transform: capitalize
 `;
 
-export const Header = () => {
+export const Header = ({ searchValue, setSearchValue }) => {
   const { t } = useTranslation();
 
   const isAuth = useSelector(selectIsAuth);
@@ -56,6 +57,7 @@ export const Header = () => {
   <Link className={styles.logo} to="/">
     <div>Reviews blog</div>
   </Link>
+  <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
   <ModeSwitcher onClick={toggleTheme} style={{marginTop: '5px'}}>
     {theme === 'light' ? (
       <Brightness4Icon sx={{ fontSize: 30 }} />

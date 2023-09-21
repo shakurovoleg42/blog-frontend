@@ -8,14 +8,12 @@ import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
-import { Search } from '../components/Search';
 
-export const Home = () => {
+export const Home = ({ searchValue }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector(state => state.auth.data);
   const { posts, tags } = useSelector(state => state.posts);
- 
   const isPostsLoading = posts.status === 'loading';
   const isTagsLoading = tags.status === 'loading';
 
@@ -25,10 +23,9 @@ export const Home = () => {
     dispatch(fetchTags());
     // eslint-disable-next-line
   }, []);
-  
+ 
   return (
     <>
-      <Search/>
       <Tabs style={{ marginBottom: 15, color: '#23a6d5' }} value={0} aria-label="basic tabs example">
           <Tab label={t('home.label_new')} />
           {/* <Tab label={t('home.label_popular')}/> */}
@@ -45,6 +42,7 @@ export const Home = () => {
                 imageUrl={obj.imageUrl ? `${process.env.REACT_APP_API_URL || 'http://localhost:4444'}${obj.imageUrl}` : ''}
                 user={obj.user}
                 createdAt={obj.createdAt}
+                likesCount={obj.likesCount}
                 viewsCount={obj.viewsCount}
                 commentsCount={0}
                 tags={obj.tags} // eslint-disable-next-line
@@ -55,25 +53,6 @@ export const Home = () => {
         </Grid>
         <Grid xs={4} item>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
-          {/* <CommentsBlock
-            items={[
-              {
-                user: {
-                  fullName: 'Вася Пупкин',
-                  avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
-                },
-                text: 'Это тестовый комментарий',
-              },
-              {
-                user: {
-                  fullName: 'Иван Иванов',
-                  avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
-                },
-                text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
-              },
-            ]}
-            isLoading={false}
-          /> */}
         </Grid>
       </Grid>
     </>

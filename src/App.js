@@ -8,6 +8,8 @@ import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState(''); //new
+
   const dispatch = useDispatch();   // eslint-disable-next-line
   const isAuth = useSelector(selectIsAuth);
 
@@ -18,10 +20,10 @@ function App() {
   return (
     <>
       {/* <GradientBackground color='secondary'/> */}
-      <Header/>
+      <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
       <Container maxWidth="lg">
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home searchValue={searchValue}/>} />
         <Route path="/posts/:id" element={<FullPost />} />
         <Route path="/posts/:id/edit" element={<AddPost />} />
         <Route path="/add-post" element={<AddPost />} />

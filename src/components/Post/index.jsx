@@ -20,6 +20,7 @@ export const Post = ({
   id,
   title,
   createdAt,
+  formattedDate,
   imageUrl,
   user,
   likesCount,
@@ -34,6 +35,9 @@ export const Post = ({
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
+  const date = new Date(createdAt);
+  formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+  
   if (isLoading) {
     return <PostSkeleton />;
   }
@@ -75,7 +79,7 @@ export const Post = ({
         />
       )}
       <div className={styles.wrapper}>
-        <UserInfo {...user} additionalText={createdAt} />
+        <UserInfo {...user} additionalText={formattedDate} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title, { [styles.titleFull]: isFullPost })}>
             {isFullPost ? title : <Link to={`/posts/${id}`}>{title}</Link>}
