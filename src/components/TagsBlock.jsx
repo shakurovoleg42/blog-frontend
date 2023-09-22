@@ -14,7 +14,7 @@ export const TagsBlock = ({ items, isLoading = true }) => {
  const { t } = useTranslation();
 
  return (
-   <SideBlock title={t('tags_block')} style={{boxshadow: 'f2f2f2'}}>
+   <SideBlock title={t('tags_block')}>
      <List>
       {(isLoading ? [...Array(5)] : items).map((name, i) => (
         <a

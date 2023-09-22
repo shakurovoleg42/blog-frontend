@@ -6,8 +6,9 @@ import Grid from '@mui/material/Grid';
 import { useTranslation } from 'react-i18next';
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
-// import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
+import { TagsCloud } from '../components/TagsCloud/TagsCloud';
+import { Search } from '../components/Search'
 
 export const Home = ({ searchValue }) => {
   const { t } = useTranslation();
@@ -26,6 +27,10 @@ export const Home = ({ searchValue }) => {
  
   return (
     <>
+      <TagsCloud/>
+      <div style={{marginTop: '1.5em', marginBottom: '1em'}} >
+        <Search searchValue={searchValue}/>
+      </div>
       <Tabs style={{ marginBottom: 15, color: '#23a6d5' }} value={0} aria-label="basic tabs example">
           <Tab label={t('home.label_new')} />
           {/* <Tab label={t('home.label_popular')}/> */}

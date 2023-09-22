@@ -57,7 +57,15 @@
     "home": {
         "label_new": "Neu",
         "label_popular": "Beliebt"
-
+    },
+    "tags_cloud": {
+        "technologies": "Technologien",
+        "games": "Spiele",
+        "arts": "Malereien",
+        "serials": "Serie",
+        "cartoons": "Cartoons",
+        "books": "Bücher",
+        "films": "Filme"
     }
     
 }

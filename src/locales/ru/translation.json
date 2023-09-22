@@ -57,6 +57,14 @@
     "home": {
         "label_new": "Новые",
         "label_popular": "Популярные"
+    },
+    "tags_cloud": {
+        "technologies": "Технологии",
+        "games": "Игры",
+        "arts": "Карины",
+        "serials": "Сериалы",
+        "cartoons": "Мультфильмы",
+        "books": "Книги",
+        "films": "Фильмы"
     }
-   
 }

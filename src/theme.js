@@ -10,7 +10,7 @@ export const theme = createTheme({
   typography: {
     button: {
       textTransform: "none",
-      fontWeight: 700,
+      fontWeight: 400,
     },
   },
 });
